@@ -1,0 +1,15 @@
+public class ExampleTests {
+
+        @Test
+        public void firstTest(){
+            WebDriverManager.chromedriver().setup();
+            WebDriver driver = new ChromeDriver();
+            driver.get("http://the-internet.herokuapp.com/");
+            driver.manage().window().maximize();
+            WebElement button=driver.findElement(By.xpath("//ul/li/a"));
+            button.click();
+            WebElement text = driver.findElement(By.xpath("//a[@href='/dropdown']")).click();
+            Select objSelect =new Select(driver.findElement(By.id("dropdown")));
+            objSelect.selectByVisibleText("option1");
+//            Assert.assertEquals(text.getText(),"No Test");
+        }
